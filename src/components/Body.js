@@ -109,7 +109,9 @@ const Body = () => {
             ) : (
                 <div className="restaurant-list">
                     {/* We are mapping restaurants array and passing JSON array data to RestaurantCard component as props with unique key as restaurant.data.id */}
+                    {/* {console.log(filteredRestaurants)} */}
                     {filteredRestaurants.map((restaurant) => {
+                        // console.log(restaurant)
                         return (
                             <RestaurantCard
                                 key={restaurant?.info?.id}
