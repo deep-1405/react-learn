@@ -1,7 +1,7 @@
 import { useState } from "react";
-import {LOGO_URL} from "../utils/constants";
-import {Link} from "react-router"
-// Title component for display logo
+import {LOGO_URL} from "../../public/constants";
+import { Link } from 'react-router-dom';
+
 const Title = () => (
     <a href="/">
         <img

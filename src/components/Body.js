@@ -1,6 +1,8 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react"; /* This is named export */
 import Shimmer from "./Shimmer"; /* This is default export */
+import { FOODFIRE_API_URL } from '../../public/constants'
+import { Link } from 'react-router-dom';
 
 // Filter the restaurant data according input type
 function filterData(searchText, restaurants) {
@@ -27,9 +29,10 @@ const Body = () => {
     async function getRestaurants() {
         // handle the error using try... catch
         try {
-            const FOODFIRE_API_URL = "http://localhost:5000/api/restaurants?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING";
-            const response = await fetch(FOODFIRE_API_URL);
+            const URL = FOODFIRE_API_URL;
+            const response = await fetch(URL);
             const json = await response.json();
+            console.log(json)
 
             // initialize checkJsonData() function to check Swiggy Restaurant data
             function checkJsonData(jsonData) {
@@ -48,7 +51,7 @@ const Body = () => {
 
             // call the checkJsonData() function which return Swiggy Restaurant data
             const resData = checkJsonData(json);
-
+            console.log(resData)
             // update the state variable restaurants with Swiggy API data
             setAllRestaurants(resData);
             setFilteredRestaurants(resData);
@@ -113,10 +116,9 @@ const Body = () => {
                     {filteredRestaurants.map((restaurant) => {
                         // console.log(restaurant)
                         return (
-                            <RestaurantCard
-                                key={restaurant?.info?.id}
-                                resData={restaurant}
-                            />
+                            <Link key={restaurant?.info?.id} to={"/restaurants/" + restaurant?.info?.id}>
+                                <RestaurantCard resData={restaurant} />
+                            </Link>
                         );
                     })}
                 </div>
