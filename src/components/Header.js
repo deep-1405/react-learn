@@ -24,13 +24,13 @@ const Header = () => {
             <div className="nav-items">
                 <ul>
                     <li>
-                        <Link to='/'>Home</Link>
+                        <Link style={{ textDecoration: "none" }} to='/'>Home</Link>
                     </li>
                     <li>
-                        <Link to='/about'>About</Link>
+                        <Link style={{ textDecoration: "none" }} to='/about'>About</Link>
                     </li>
                     <li>
-                        <Link to='/contact'>Contact US</Link>
+                        <Link style={{ textDecoration: "none" }} to='/contact'>Contact US</Link>
                     </li>
                     <li>
                         <i className="fa-solid fa-cart-shopping"></i>
